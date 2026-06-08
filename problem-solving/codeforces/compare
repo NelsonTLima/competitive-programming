@@ -1,0 +1,21 @@
+#!python3
+
+
+with open("./out", "r") as file:
+    out = file.readlines()
+    for i in range(len(out)):
+        out[i] = out[i].strip()
+
+with open("./answer", "r") as file:
+    answer = file.readlines()
+    for i in range(len(answer)):
+        answer[i] = answer[i].strip()
+
+
+if out == answer:
+    print("\033[32mPassou\033[0m")
+else:
+    for i in range(min(len(out), len(answer))):
+        if (out[i] != answer[i]): print("\033[31m", end="")
+
+        print(i + 1, "|", out[i], "\033[32m->", answer[i], "\033[0m")
